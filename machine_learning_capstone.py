@@ -24,7 +24,6 @@ df = df.drop(['id', 'lesion_1', 'lesion_2', 'lesion_3', 'cp_data'], axis=1)
 df = df.dropna()
 
 
-
 # Split the train.csv into training and testing
 # Test size to be 20% of the overall
 X = df.drop('outcome', axis=1)
@@ -33,11 +32,9 @@ y = df['outcome']
 X_train, X_val, y_train, y_val = train_test_split(X, y, test_size=0.2, random_state=42)
 
 
-
 # Map 'euthanized' to 'died' in the 'outcome' column
 y_train = y_train.replace({'euthanized': 'died'})
 y_val = y_val.replace({'euthanized': 'died'})
-
 
 
 # One-Hot Encoding
@@ -147,13 +144,13 @@ plt.show()
 df_encoded = pd.concat([X_val_encoded, pd.Series(y_val_encoded, name='outcome')], axis=1)
 
 # Filter the dataset to include only rows where the outcome is 'died'
-lived_df = df_encoded[df_encoded['outcome'] == 1]
+died_df = df_encoded[df_encoded['outcome'] == 1]
 
 # List of pain level columns
 pain_columns = ['pain_alert', 'pain_depressed', 'pain_extreme_pain', 'pain_mild_pain', 'pain_severe_pain']
 
 # Sum the occurrences of each pain level in the filtered dataset
-pain_counts = lived_df[pain_columns].sum()
+pain_counts = died_df[pain_columns].sum()
 
 # Mapping of original column names to display names
 column_mapping = {
