@@ -27,13 +27,17 @@ def index():
 @app.route('/accuracy')
 def accuracy():
 
-    return render_template('accuracy.html', accuracy = str(round(accuracy_score(y_val_encoded, y_pred) * 100, 2)))
+    accuracy = str(round(accuracy_score(y_val_encoded, y_pred) * 100, 2))
+    class_report = classification_report(y_val_encoded, y_pred, target_names=label_encoder.classes_)
+    print(class_report)
+    
+    class_report_lst = class_report.split()
+    class_report_lst = [class_report.capitalize() if not class_report.isdigit() else class_report for class_report in class_report_lst]
+    print(class_report_lst)
 
-@app.route('/class_report')
-def class_report():
 
-    return render_template('class_report.html', class_report = classification_report(y_val_encoded, y_pred, target_names=label_encoder.classes_))
 
+    return render_template('accuracy.html', accuracy=accuracy, class_report=class_report_lst)
 
 
 
@@ -55,10 +59,10 @@ def survival_calculator():
 
 
 
-    return render_template('survival_calculator.html', dataframe = df.columns, unique_hospital_number=unique_hospital_number, 
+    return render_template('survival_calculator.html', unique_hospital_number=unique_hospital_number, unique_pain=unique_pain,
                            unique_temp_of_extremities=unique_temp_of_extremities, unique_peripheral_pulse=unique_peripheral_pulse,
                            unique_mucous_membrane=unique_mucous_membrane, unique_capillary_refill_time=unique_capillary_refill_time,
-                           unique_pain=unique_pain, unique_peristalsis=unique_peristalsis, unique_abdominal_distention=unique_abdominal_distention,
+                           unique_peristalsis=unique_peristalsis, unique_abdominal_distention=unique_abdominal_distention,
                            unique_nasogastric_tube=unique_nasogastric_tube, unique_nasogastric_reflux=unique_nasogastric_reflux,
                            unique_rectal_exam_feces=unique_rectal_exam_feces, unique_abdomen=unique_abdomen, 
                            unique_abdomo_appearance=unique_abdomo_appearance)

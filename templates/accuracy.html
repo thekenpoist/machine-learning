@@ -3,11 +3,135 @@
 {% block content %}
 
 <section class="p-5">
-    <body>
-        <h1>Accuracy Score: {{ accuracy }}%</h1>
-    </body>
+    <div class="container">
+        <div class="text-center">
+            <h1>Accuracy Score: {{ accuracy }}%</h1><br>
+        </div>
+        <div class="mt-4">
+            <h2>Classification Report</h2>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <td>{{ class_report[0] }}</td>
+                        <td>{{ class_report[1] }}</td>
+                        <td>{{ class_report[2] }}</td>
+                        <td>{{ class_report[3] }}</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>{{ class_report[4] }}</td>
+                        <td>{{ class_report[5] }}</td>
+                        <td>{{ class_report[6] }}</td>
+                        <td>{{ class_report[7] }}</td>
+                        <td>{{ class_report[8] }}</td>
+                    </tr>
+                    <tr>
+                        <td>{{ class_report[9] }}</td>
+                        <td>{{ class_report[10] }}</td>
+                        <td>{{ class_report[11] }}</td>
+                        <td>{{ class_report[12] }}</td>
+                        <td>{{ class_report[13] }}</td>
+                    </tr>
+                    <tr>
+                        <td>{{ class_report[14] }}</td>
+                        <th></th>
+                        <th></th>
+                        <td>{{ class_report[15] }}</td>
+                        <td>{{ class_report[16] }}</td>
+                    </tr>
+                    <tr>
+                        <td>{{ class_report[17] }} {{ class_report[18] }}</td>
+                        <td>{{ class_report[19] }}</td>
+                        <td>{{ class_report[20] }}</td>
+                        <td>{{ class_report[21] }}</td>
+                        <td>{{ class_report[22] }}</td>
+                    </tr>
+                    <tr>
+                        <td>{{ class_report[23] }} {{ class_report[24] }}</td>
+                        <td>{{ class_report[25] }}</td>
+                        <td>{{ class_report[26] }}</td>
+                        <td>{{ class_report[27] }}</td>
+                        <td>{{ class_report[28] }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+<section class="p-5">
+    <div class="container">
+        <h2>Purpose of the Accuracy Score</h2>
+        <p>
+            The accuracy score is a measure used to evaluate how well a machine learning model performs. It tells us the percentage of correct predictions the model makes out of all the predictions it tries to make.
+        </p>
+        <h3>How It Works</h3>
+        <p>
+            We have a dataset containing information on whether a horse with colic will live or die based on certain symptoms and treatments. We also have the actual outcomes (whether each horse survived or not) within the dataset for each case. The accuracy score compares the model's predictions to the actual outcomes. It calculates how many times the model's predictions were correct and divides this by the total number of predictions made using this formula:
+        </p>
+        <p><strong>Accuracy = (Total Number of Correct Predictions) / (Total Number of Predictions)</strong></p>
+        <p>
+            The accuracy score gives us a straightforward way to understand the effectiveness of the model. A higher accuracy score means the model is making more correct predictions, which is desirable in most scenarios. An accuracy measurement of anything between 70%-90% is consistent with industry standards.
+        </p>
+        <p>
+            In this case, which is predicting horse survival, an accuracy score of <strong>{{ accuracy }}%</strong> means the model would be considered reliable in helping horse owners and veterinarians make informed decisions.
+        </p>
+    </div>
 </section>
 
-
+<section class="p-5">
+    <div class="container">
+        <h2>Purpose of the Classification Report</h2>
+        <p>
+            The classification report is a summary of how well our machine learning model performs when making predictions. It provides important metrics that help us understand the accuracy and reliability of the model's predictions. Think of it as a report card for our model, showing us how well it did in predicting whether horses with colic would live or die. It helps us see the strengths and weaknesses of the model's predictions.
+        </p>
+        <h3>What Our Classification Report Tells Us</h3>
+        <ul>
+            <li><strong>Precision</strong>: Out of all the predictions for each class (died or lived), how many were correct?</li>
+            <ul>
+                <li><strong>Died</strong>: 0.79 - This means 79% of the time the model predicted a horse would die, it was correct.</li>
+                <li><strong>Lived</strong>: 0.79 - This means 79% of the time the model predicted a horse would live, it was correct.</li>
+            </ul>
+            <li><strong>Recall</strong>: Out of all the actual instances of each class, how many did the model correctly identify?</li>
+            <ul>
+                <li><strong>Died</strong>: 0.81 - This means the model correctly identified 81% of the horses that actually died.</li>
+                <li><strong>Lived</strong>: 0.77 - This means the model correctly identified 77% of the horses that actually lived.</li>
+            </ul>
+            <li><strong>F1-Score</strong>: A balance between precision and recall.</li>
+            <ul>
+                <li><strong>Died</strong>: 0.80 - This is a good balance between precision and recall for predicting death.</li>
+                <li><strong>Lived</strong>: 0.78 - This is a good balance between precision and recall for predicting survival.</li>
+            </ul>
+            <li><strong>Support</strong>: The number of actual instances of each class in the test data.</li>
+            <ul>
+                <li><strong>Died</strong>: 80</li>
+                <li><strong>Lived</strong>: 75</li>
+            </ul>
+            <li><strong>Accuracy</strong>: The overall percentage of correct predictions.</li>
+            <ul>
+                <li>Accuracy: 0.79 - This means the model correctly predicted the outcome for 79% of the cases.</li>
+            </ul>
+            <li><strong>Macro Average</strong>: The average of precision, recall, and F1-score across all classes.</li>
+            <ul>
+                <li>Macro avg: 0.79 - This is the unweighted average, treating each class equally.</li>
+            </ul>
+            <li><strong>Weighted Average</strong>: The average of precision, recall, and F1-score across all classes, weighted by the number of true instances for each class.</li>
+            <ul>
+                <li>Weighted avg: 0.79 - This takes into account the number of instances in each class.</li>
+            </ul>
+        </ul>
+        <h3>Evaluation</h3>
+        <ul>
+            <li>Precision and Recall: Both classes (died and lived) have fairly balanced precision and recall, indicating the model performs consistently across different outcomes.</li>
+            <li>F1-Score: The F1-scores are close to each other and fairly high, showing a good balance between precision and recall.</li>
+            <li>Overall Accuracy: An accuracy of 79% is considered good, especially if the problem is complex and the data is "noisy".</li>
+        </ul>
+        <h3>Conclusion</h3>
+        <p>
+            This classification report is considered good for our model. The metrics are well-balanced and show that the model is performing well in predicting both classes.
+        </p>
+    </div>
+</section>
 
 {% endblock %}
