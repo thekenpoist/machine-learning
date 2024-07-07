@@ -1,0 +1,166 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<style>
+    h1 {text-align: center;}
+    .form-container {
+        display: grid;
+        grid-template-columns: max-content auto;
+        gap: 10px 20px;
+        width: 50%;
+        margin: auto;
+    }
+    .form-container label {
+        text-align: right;
+        font-weight: bold;
+    }
+    .form-container input,
+    .form-container select {
+        width: 100%;
+    }
+</style>
+
+<body>
+<section class="p-5">
+    <h1>Horse Colic Survival Probability Calculator</h1>
+    <br><br>
+    <form action="/predict" method="post" class="form-container">
+        
+        <label for="surgery">Surgery:</label>
+        <select id="surgery" name="surgery" required>
+            <option value="yes">yes</option>
+            <option value="no">no</option>
+        </select>
+        
+        <label for="age">Age:</label>
+        <select id="age" name="age" required>
+            <option value="adult">adult</option>
+            <option value="young">young</option>
+        </select>
+        
+        <label for="hospital_number">Hospital Number:</label>
+        <select id="hospital_number" name="hospital_number" required>
+            {% for hospital_number in unique_hospital_number %}
+                <option value="{{ hospital_number }}">{{ hospital_number }}</option>
+            {% endfor %}
+        </select>
+        
+        <label for="rectal_temp">Rectal Temperature:</label>
+        <input type="number" id="rectal_temp" name="rectal_temp" min="35.4" max="40.8" step="0.1" required>
+        
+        <label for="pulse">Pulse:</label>
+        <input type="number" id="pulse" name="pulse" min="30" max="184" step="1.0" required>
+        
+        <label for="respiratory_rate">Respiratory Rate:</label>
+        <input type="number" id="respiratory_rate" name="respiratory_rate" min="8" max="96" step="1.0" required>
+        
+        <label for="temp_of_extremities">Temperature Of Extremities:</label>
+        <select id="temp_of_extremities" name="temp_of_extremities" required>
+            {% for temp_of_extremities in unique_temp_of_extremities %}
+                <option value="{{ temp_of_extremities }}">{{ temp_of_extremities }}</option>
+            {% endfor %}
+        </select>
+        
+        <label for="peripheral_pulse">Peripheral Pulse:</label>
+        <select id="peripheral_pulse" name="peripheral_pulse" required>
+            {% for peripheral_pulse in unique_peripheral_pulse %}
+                <option value="{{ peripheral_pulse }}">{{ peripheral_pulse }}</option>
+            {% endfor %}
+        </select>
+        
+        <label for="mucous_membrane">Mucous Membrane:</label>
+        <select id="mucous_membrane" name="mucous_membrane" required>
+            {% for mucous_membrane in unique_mucous_membrane %}
+                <option value="{{ mucous_membrane }}">{{ mucous_membrane }}</option>
+            {% endfor %}
+        </select>
+        
+        <label for="capillary_refill_time">Capillary Refill Time:</label>
+        <select id="capillary_refill_time" name="capillary_refill_time" required>
+            {% for capillary_refill_time in unique_capillary_refill_time %}
+                <option value="{{ capillary_refill_time }}">{{ capillary_refill_time }}</option>
+            {% endfor %}
+        </select>
+        
+        <label for="pain">Pain:</label>
+        <select id="pain" name="pain" required>
+            {% for pain in unique_pain %}
+                <option value="{{ pain }}">{{ pain }}</option>
+            {% endfor %}
+        </select>
+        
+        <label for="peristalsis">Peristalsis:</label>
+        <select id="peristalsis" name="peristalsis" required>
+            {% for peristalsis in unique_peristalsis %}
+                <option value="{{ peristalsis }}">{{ peristalsis }}</option>
+            {% endfor %}
+        </select>
+        
+        <label for="abdominal_distention">Abdominal Distention:</label>
+        <select id="abdominal_distention" name="abdominal_distention" required>
+            {% for abdominal_distention in unique_abdominal_distention %}
+                <option value="{{ abdominal_distention }}">{{ abdominal_distention }}</option>
+            {% endfor %}
+        </select>
+        
+        <label for="nasogastric_tube">Nasogastric Tube:</label>
+        <select id="nasogastric_tube" name="nasogastric_tube" required>
+            {% for nasogastric_tube in unique_nasogastric_tube %}
+                <option value="{{ nasogastric_tube }}">{{ nasogastric_tube }}</option>
+            {% endfor %}
+        </select>
+        
+        <label for="nasogastric_reflux">Nasogastric Reflux:</label>
+        <select id="nasogastric_reflux" name="nasogastric_reflux" required>
+            {% for nasogastric_reflux in unique_nasogastric_reflux %}
+                <option value="{{ nasogastric_reflux }}">{{ nasogastric_reflux }}</option>
+            {% endfor %}
+        </select>
+        
+        <label for="nasogastric_reflux_ph">Nasogastric Reflux PH:</label>
+        <input type="number" id="nasogastric_reflux_ph" name="nasogastric_reflux_ph" min="1" max="7.5" step="0.1" required>
+        
+        <label for="rectal_exam_feces">Rectal Exam Feces:</label>
+        <select id="rectal_exam_feces" name="rectal_exam_feces" required>
+            {% for rectal_exam_feces in unique_rectal_exam_feces %}
+                <option value="{{ rectal_exam_feces }}">{{ rectal_exam_feces }}</option>
+            {% endfor %}
+        </select>
+        
+        <label for="abdomen">Abdomen:</label>
+        <select id="abdomen" name="abdomen" required>
+            {% for abdomen in unique_abdomen %}
+                <option value="{{ abdomen }}">{{ abdomen }}</option>
+            {% endfor %}
+        </select>
+        
+        <label for="packed_cell_volume">Packed Cell Volume:</label>
+        <input type="number" id="packed_cell_volume" name="packed_cell_volume" min="23" max="75" step="1.0" required>
+        
+        <label for="total_protein">Total Protein:</label>
+        <input type="number" id="total_protein" name="total_protein" min="3.5" max="89" step="0.1" required>
+        
+        <label for="abdomo_appearance">Abdomen Appearance:</label>
+        <select id="abdomo_appearance" name="abdomo_appearance" required>
+            {% for abdomo_appearance in unique_abdomo_appearance %}
+                <option value="{{ abdomo_appearance }}">{{ abdomo_appearance }}</option>
+            {% endfor %}
+        </select>
+        
+        <label for="abdomo_protein">Abdomen Protein:</label>
+        <input type="number" id="abdomo_protein" name="abdomo_protein" min="0.1" max="10.1" step="0.1" required>
+        
+        <label for="surgical_lesion">Surgical Lesion:</label>
+        <select id="surgical_lesion" name="surgical_lesion" required>
+            <option value="yes">yes</option>
+            <option value="no">no</option>
+        </select>
+        
+        <br><br>
+        <input type="submit" value="Predict">
+    </form>
+</section>
+</body>
+
+{% endblock %}

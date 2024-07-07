@@ -88,7 +88,7 @@ class MachineLearning:
         # Predict on the validation set
         y_pred = model.predict(X_val_encoded)
 
-        return model, X_train_encoded, X_val_encoded, y_train_encoded, y_val_encoded, y_pred, label_encoder
+        return df, model, X_train_encoded, X_val_encoded, y_train_encoded, y_val_encoded, y_pred, label_encoder
 
 
 
