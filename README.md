@@ -18,7 +18,9 @@ experience concerning colic and enable veterinary medical staff to more effectiv
 predict the horses' prognosis based on accurately calculated data, thereby improving 
 overall treatment methods and predicting survival probability.
 
-NOTE: Train and test datasets acquired from Kaggle.com.
+NOTE: The train.csv dataset was acquired from Kaggle.com.
 https://www.kaggle.com/competitions/playground-series-s3e22
+
+Renamed as horse_colic.csv for purposes of this project
 ```
 

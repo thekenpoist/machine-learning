@@ -3,7 +3,9 @@
 {% block content %}
 
 <style>
-    h1 {text-align: center;}
+    h1 {
+        text-align: center;
+    }
     .form-container {
         display: grid;
         grid-template-columns: max-content auto;
@@ -19,59 +21,49 @@
     .form-container select {
         width: 100%;
     }
+    .center-text {
+        text-align: center;
+    }
+    .bold-text {
+        font-weight: bold;
+    }
+    .highlight {
+        font-size: 1.2em;
+        text-align: center;
+        margin-bottom: 20px;
+    }
 </style>
 
 <body>
 <section class="p-5">
-    <h1>Colic Survival Probability: {{ probability }}%</h1>
+    <h1>Survival Probability: {{ probability }}%</h1>
     <br><br>
-        
-        <P><b>Surgery:</b> {{ form_data.surgery }}</P>
-        
-        <p><b>Age:</b> {{ form_data.age }}</P>
-        
-        <label for="hospital_number">Hospital Number:</label>
-        
-        <label for="rectal_temp">Rectal Temperature:</label>
-        
-        <label for="pulse">Pulse:</label>
-        
-        <label for="respiratory_rate">Respiratory Rate:</label>
-        
-        <label for="temp_of_extremities">Temperature Of Extremities:</label>
-        
-        <label for="peripheral_pulse">Peripheral Pulse:</label>
-        
-        <label for="mucous_membrane">Mucous Membrane:</label>
-        
-        <label for="capillary_refill_time">Capillary Refill Time:</label>
-        
-        <label for="pain">Pain:</label>
-        
-        <label for="peristalsis">Peristalsis:</label>
-        
-        <label for="abdominal_distention">Abdominal Distention:</label>
-        
-        <label for="nasogastric_tube">Nasogastric Tube:</label>
-        
-        <label for="nasogastric_reflux">Nasogastric Reflux:</label>
-        
-        <label for="nasogastric_reflux_ph">Nasogastric Reflux PH:</label>
-        
-        <label for="rectal_exam_feces">Rectal Exam Feces:</label>
-        
-        <label for="abdomen">Abdomen:</label>
-        
-        <label for="packed_cell_volume">Packed Cell Volume:</label>
-        
-        <label for="total_protein">Total Protein:</label>
-        
-        <label for="abdomo_appearance">Abdomen Appearance:</label>
-        
-        <label for="abdomo_protein">Abdomen Protein:</label>
-        
-        <label for="surgical_lesion">Surgical Lesion:</label>
-        
+    <p class="highlight"><strong>Based on these inputted values:</strong></p>
+    <div class="form-container">
+        <label>Surgery:</label><span>{{ form_data.surgery }}</span>
+        <label>Age:</label><span>{{ form_data.age }}</span>
+        <label>Hospital Number:</label><span>{{ form_data.hospital_number }}</span>
+        <label>Rectal Temperature:</label><span>{{ form_data.rectal_temp }}</span>
+        <label>Pulse:</label><span>{{ form_data.pulse }}</span>
+        <label>Respiratory Rate:</label><span>{{ form_data.respiratory_rate }}</span>
+        <label>Temperature Of Extremities:</label><span>{{ form_data.temp_of_extremities }}</span>
+        <label>Peripheral Pulse:</label><span>{{ form_data.peripheral_pulse }}</span>
+        <label>Mucous Membrane:</label><span>{{ form_data.mucous_membrane }}</span>
+        <label>Capillary Refill Time:</label><span>{{ form_data.capillary_refill_time }}</span>
+        <label>Pain:</label><span>{{ form_data.pain }}</span>
+        <label>Peristalsis:</label><span>{{ form_data.peristalsis }}</span>
+        <label>Abdominal Distention:</label><span>{{ form_data.abdominal_distention }}</span>
+        <label>Nasogastric Tube:</label><span>{{ form_data.nasogastric_tube }}</span>
+        <label>Nasogastric Reflux:</label><span>{{ form_data.nasogastric_reflux }}</span>
+        <label>Nasogastric Reflux PH:</label><span>{{ form_data.nasogastric_reflux_ph }}</span>
+        <label>Rectal Exam Feces:</label><span>{{ form_data.rectal_exam_feces }}</span>
+        <label>Abdomen:</label><span>{{ form_data.abdomen }}</span>
+        <label>Packed Cell Volume:</label><span>{{ form_data.packed_cell_volume }}</span>
+        <label>Total Protein:</label><span>{{ form_data.total_protein }}</span>
+        <label>Abdomen Appearance:</label><span>{{ form_data.abdomo_appearance }}</span>
+        <label>Abdomen Protein:</label><span>{{ form_data.abdomo_protein }}</span>
+        <label>Surgical Lesion:</label><span>{{ form_data.surgical_lesion }}</span>
+    </div>
 </section>
 </body>
 
