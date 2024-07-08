@@ -2,11 +2,46 @@
 
 {% block content %}
 
-<section class="p-5">
-    <body>
-        <img src="../static/images/hospital_death_correlation_bar_chart.png">
-    </body>
-</html>
+<section class="p-1 text-center">
+    <div class="container">
+        <img src="../static/images/hospital_death_correlation_bar_chart.png" class="img-fluid" alt="Hospital Death Correlation Bar Chart">
+    </div>
+</section>
 
+<section class="py-1">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8 text-left">
+                <p class="text-left">
+                    The bar graph is a visual representation that makes it easy for us to compare different categories or groups. Each bar represents a category, 
+                    and the height of the bar indicates the value or frequency of that category. The purpose of a bar chart is to highlight which categories 
+                    have higher or lower values.
+                </p>
+                <p class="text-left">
+                    This bar chart visually displays the top 20 hospitals and the number of deaths attributed to each hospital, sorted in descending order 
+                    from left to right. Each bar represents a hospital, and the length of the bar indicates the number of deaths of horses with colic at 
+                    that particular hospital. This chart identifies which hospitals have the highest death rates for horses with colic, providing valuable 
+                    insights for improving veterinary care and resource allocation.
+                </p>
+                <p class="text-left">
+                    <strong>Conclusions drawn from this visualization:</strong>
+                </p>
+                <ul class="text-left">
+                    <li>
+                        <strong>Hospital 529461</strong> has the highest number of deaths of horses with colic at 24, indicating a problem. Factors to be considered include:
+                        <ul>
+                            <li>Size of the hospital and its customer base</li>
+                            <li>Medical staff size and training</li>
+                            <li>Hospital location</li>
+                        </ul>
+                    </li>
+                    <li>
+                        Other hospitals also needing a closer look include <strong>Hospital 528469</strong> (9 deaths) and <strong>Hospital 530001</strong> (8 deaths).
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
 
 {% endblock %}

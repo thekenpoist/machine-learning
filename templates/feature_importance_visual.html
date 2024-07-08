@@ -2,12 +2,40 @@
 
 {% block content %}
 
-<section class="p-5">
-    <body>
-        <img src="../static/images/feature_importance.png"></body>
-    </body>
+<section class="p-2 text-center">
+    <img src="../static/images/feature_importance.png" class="img-fluid" alt="Feature Importance">
 </section>
 
-
+<section class="py-1">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8 text-left">
+                <p>
+                    The Feature Importances plot helps us understand which features are most influential in the model’s predictions, and 
+                    provides us insights into the underlying patterns in the data. It increases the interpretability of the model by showing 
+                    us how much each feature contributes to the prediction. It can also be used to identify and possibly remove features 
+                    that have little to no importance, simplifying the model and reducing the risk of overfitting. Features with higher 
+                    importance should be carefully considered in the context of the dataset, as they are driving the model’s decisions. 
+                    Conversely, features with very low importance might be candidates for removal in future model iterations. The features 
+                    are ordered from least to most important, providing a clear visual representation of their significance in the model. 
+                    Positive values indicate a positive relationship with the target variable. Negative values indicate a negative relationship 
+                    with the target variable. Higher magnitudes indicate more important features. Features at the top of the plot are the most important, 
+                    regardless of the sign of their coefficients.
+                </p>
+                <h3>Conclusions drawn from this visualization:</h3>
+                <h4>Features with Positive Values:</h4>
+                <ul>
+                    <li><strong>pain_alert</strong>: Since it has a value greater than 1.5, it is one of the most important features positively associated with survival. Horses showing alertness have a higher likelihood of surviving.</li>
+                    <li><strong>surgery_yes</strong>: With a value between 0 and 0.5, it indicates that undergoing surgery has a small but positive effect on survival chances.</li>
+                </ul>
+                <h4>Features with Negative Values:</h4>
+                <ul>
+                    <li><strong>surgery_no</strong>: With a value between 0 and -0.5, it indicates that not undergoing surgery has a small negative effect on survival chances.</li>
+                    <li><strong>pain_severe_pain</strong>: With a value less than -1.0, it is a significant negative predictor. Horses experiencing severe pain have a much lower probability of surviving.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
 
 {% endblock %}

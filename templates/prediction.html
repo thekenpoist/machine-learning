@@ -2,38 +2,77 @@
 
 {% block content %}
 
+<style>
+    h1 {text-align: center;}
+    .form-container {
+        display: grid;
+        grid-template-columns: max-content auto;
+        gap: 10px 20px;
+        width: 50%;
+        margin: auto;
+    }
+    .form-container label {
+        text-align: right;
+        font-weight: bold;
+    }
+    .form-container input,
+    .form-container select {
+        width: 100%;
+    }
+</style>
+
+<body>
 <section class="p-5">
-    <body>
-
-{{ probability }}
-
-        <!---
-        {{ surgery }}
-        {{ age }}
-        {{ hospital_number }}
-        {{ rectal_temp }}
-        {{ pulse }}
-        {{ respiratory_rate }}
-        {{ temp_of_extremities }}
-        {{ peripheral_pulse }}
-        {{ mucous_membrane }}
-        {{ capillary_refill_time }}
-        {{ pain }}
-        {{ peristalsis }}
-        {{ abdominal_distention }}
-        {{ nasogastric_tube }}
-        {{ nasogastric_reflux }}
-        {{ nasogastric_reflux_ph }}
-        {{ rectal_exam_feces }}
-        {{ abdomen }}
-        {{ packed_cell_volume }}
-        {{ total_protein }}
-        {{ abdomo_appearance }}
-        {{ abdomo_protein }}
-        {{ surgical_lesion }} --->
-    </body>
+    <h1>Colic Survival Probability: {{ probability }}%</h1>
+    <br><br>
+        
+        <P><b>Surgery:</b> {{ form_data.surgery }}</P>
+        
+        <p><b>Age:</b> {{ form_data.age }}</P>
+        
+        <label for="hospital_number">Hospital Number:</label>
+        
+        <label for="rectal_temp">Rectal Temperature:</label>
+        
+        <label for="pulse">Pulse:</label>
+        
+        <label for="respiratory_rate">Respiratory Rate:</label>
+        
+        <label for="temp_of_extremities">Temperature Of Extremities:</label>
+        
+        <label for="peripheral_pulse">Peripheral Pulse:</label>
+        
+        <label for="mucous_membrane">Mucous Membrane:</label>
+        
+        <label for="capillary_refill_time">Capillary Refill Time:</label>
+        
+        <label for="pain">Pain:</label>
+        
+        <label for="peristalsis">Peristalsis:</label>
+        
+        <label for="abdominal_distention">Abdominal Distention:</label>
+        
+        <label for="nasogastric_tube">Nasogastric Tube:</label>
+        
+        <label for="nasogastric_reflux">Nasogastric Reflux:</label>
+        
+        <label for="nasogastric_reflux_ph">Nasogastric Reflux PH:</label>
+        
+        <label for="rectal_exam_feces">Rectal Exam Feces:</label>
+        
+        <label for="abdomen">Abdomen:</label>
+        
+        <label for="packed_cell_volume">Packed Cell Volume:</label>
+        
+        <label for="total_protein">Total Protein:</label>
+        
+        <label for="abdomo_appearance">Abdomen Appearance:</label>
+        
+        <label for="abdomo_protein">Abdomen Protein:</label>
+        
+        <label for="surgical_lesion">Surgical Lesion:</label>
+        
 </section>
-
-
+</body>
 
 {% endblock %}

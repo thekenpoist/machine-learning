@@ -2,11 +2,36 @@
 
 {% block content %}
 
-<section class="p-5">
-    <body>
-        <img src="../static/images/pain_distribution_pie_chart.png">
-    </body>
-</html>
+<section class="p-1 text-center">
+        <img src="../static/images/pain_distribution_pie_chart.png" class="img-fluid" alt="Pain Distribution Pie Chart">
+</section>
 
+<section class="py-1">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8 text-left">
+                <p>
+                    The pie chart is a circular statistical graphic divided into slices to provide us with a visual representation of proportions. 
+                    Each slice in a pie chart represents a category's contribution to the total, and allows us to make an easy comparison of different 
+                    categories. Pie charts simplify complex data sets by breaking down data sections that are easier for us to understand and interpret. 
+                    This helps in conveying information quickly and efficiently.
+                </p>
+                <p>
+                    This pie chart provides a clear and intuitive visual representation of the prevalence of various pain levels in horses that died 
+                    due to colic. This can help veterinarians and researchers understand which pain levels are most common among horses that did not 
+                    survive, potentially aiding in better diagnosis and treatment strategies in the future.
+                </p>
+                <p>
+                    <strong>Conclusions drawn from this visualization:</strong>
+                </p>
+                <ul>
+                    <li><strong>Mild Pain (45.5%):</strong> This is the most common pain level among the horses that died. Almost half of all horses that died due to colic experienced mild pain.</li>
+                    <li><strong>Extreme Pain (18.2%) and Depressed (18.2%):</strong> These are the next most common pain levels, representing a little more than one third of all horses that died.</li>
+                    <li><strong>Alert (9.1%) and Severe Pain (9.1%):</strong> These pain levels are the least common among the horses that died, representing less than one fifth of all horses that died.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
 
 {% endblock %}

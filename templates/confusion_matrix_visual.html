@@ -2,12 +2,31 @@
 
 {% block content %}
 
-<section class="p-5">
-    <body>
-        <img src="../static/images/confusion_matrix.png"></body>
-    </body>
+<section class="p-1 text-center">
+    <img src="../static/images/confusion_matrix.png" class="img-fluid" alt="Confusion Matrix">
 </section>
 
-
+<section class="py-1">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8 text-left">
+                <p>
+                    The Confusion Matrix is a table that summarizes the performance of a classification model by showing the number of correct 
+                    and incorrect predictions for each class (lived or died), visualized using a heatmap to make it easier to interpret. This visualization 
+                    helps in understanding how well the model is performing, particularly in identifying how many True Positive (top-left cell), 
+                    True Negative (bottom-right cell), False Positive (bottom-left cell), and False Negative (top-right cell) predictions were made.
+                </p>
+                <h3>Conclusions drawn from this visualization:</h3>
+                <ul>
+                    <li><strong>High True Positives (65)</strong>: The model performs well at predicting horses that will die.</li>
+                    <li><strong>Moderate False Positives (15)</strong>: There are some inaccurate forecasts where the model predicts survival for horses that actually died.</li>
+                    <li><strong>Moderate False Negatives (17)</strong>: TThere are some inacurate forecasts where the model predicts death for horses that actually lived.</li>
+                    <li><strong>High True Negatives (58)</strong>: The model performs well at predicting horses that will survive.</li>
+                
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
 
 {% endblock %}
