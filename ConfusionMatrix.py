@@ -1,5 +1,7 @@
 import os
 import matplotlib.pyplot as plt
+import matplotlib
+matplotlib.use('Agg')
 import seaborn as sns
 from sklearn.metrics import confusion_matrix
 from flask import render_template
