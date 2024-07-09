@@ -37,7 +37,7 @@ def index():
 @app.route('/accuracy_report')
 def accuracy_report_route():
 
-    return accuracy_report(y_val_encoded, y_pred, label_encoder)
+    return accuracy_report(y_val_encoded, y_pred, label_encoder, model, X_val_encoded)
 
 
 # Confusion matrix route

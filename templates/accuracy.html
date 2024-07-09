@@ -7,6 +7,9 @@
         <div class="text-center">
             <h1>Accuracy Score: {{ accuracy }}%</h1><br>
         </div>
+        <div class="text-center">
+            <h1>AUC-ROC score: {{ roc_auc }}</h1><br>
+        </div>
         <div class="mt-4">
             <h2>Classification Report</h2>
             <table class="table table-striped">
@@ -58,9 +61,10 @@
                 </tbody>
             </table>
         </div>
+        
     </div>
 </section>
-<section class="p-5">
+<section class="p-3">
     <div class="container">
         <h2>Purpose of the Accuracy Score</h2>
         <p>
@@ -79,8 +83,25 @@
         </p>
     </div>
 </section>
-
-<section class="p-5">
+<section class="p-3">
+    <div class="container content-section">
+        <h2>Purpose of the AUC-ROC (Area Under the Receiver Operating Characteristic) Score</h2>
+        <p>
+            The AUC-ROC Score measures how well a model can distinguish between two classes (in our case, lived and died). The score ranges from 0 to 1. 
+            <ul>
+                <li>0.5: Represents a model that makes random predictions.</li>
+                <li>0.5 - 0.7: Indicates a model with low to moderate predictive ability.</li>
+                <li>0.7 - 0.8: Suggests a model with acceptable performance.</li>
+                <li>0.8 - 0.9: Signifies a model with excellent performance.</li>
+                <li>0.9 - 1.0: Reflects a model with outstanding performance, with 1.0 being a perfect model.</li>
+            </ul>
+        </p>
+        <h3>What Our AUC-ROC Score Tells Us</h3>
+        <p>
+            An AUC-ROC Score of <strong>{{ roc_auc }}</strong> means that our model is excellent at distinguishing between horses that will survive and those that won't. This score indicates that our model has an 83.1% chance of correctly predicting a live/die outcome.
+        </p>
+    </div>
+<section class="p-3">
     <div class="container">
         <h2>Purpose of the Classification Report</h2>
         <p>
