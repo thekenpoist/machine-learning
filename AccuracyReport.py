@@ -3,7 +3,6 @@ from sklearn.metrics import roc_auc_score
 from flask import render_template
 
 
-
 # Accuracy report function
 def accuracy_report(y_val_encoded, y_pred, label_encoder, model, X_val_encoded):
 
