@@ -34,4 +34,18 @@ https://www.kaggle.com/competitions/playground-series-s3e22
 
 Renamed as horse_colic.csv for purposes of this project
 ```
+### Installation
+```
+Requirements:
+Python v3.10.9
+Pip V24.1.2
 
+In the machine-learning directory run:
+'pip install -r requirements.txt'
+'python Main.py'
+
+In the browser address bar type:
+'127.0.0.1:5000' and press enter 
+
+NOTE: If you're running a different version of Python you'll probably need to install the required libraries manually with pip.
+```
