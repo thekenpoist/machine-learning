@@ -6,22 +6,29 @@
     h1 {text-align: center;}
     .form-container {
         display: grid;
-        grid-template-columns: max-content auto;
+        grid-template-columns: 1fr 1fr;
         gap: 10px 20px;
-        width: 50%;
+        width: 100%;
+        max-width: 600px;
         margin: auto;
     }
     .form-container label {
-        text-align: right;
+        text-align: left;
         font-weight: bold;
     }
     .form-container input,
     .form-container select {
         width: 100%;
     }
+
+    @media (max-width: 600px) {
+        .form-container {
+            grid-template-columns: 1fr;
+        }
+    }
 </style>
+
 <div class="container">
-<body>
 <section class="p-5">
     <h1>Horse Colic Survival Probability Calculator</h1>
     <br><br>
@@ -46,13 +53,13 @@
             {% endfor %}
         </select>
         
-        <label for="rectal_temp">Rectal Temperature:</label>
+        <label for="rectal_temp">Rectal Temperature - Range 35.4-40.8:</label>
         <input type="number" id="rectal_temp" name="rectal_temp" min="35.4" max="40.8" step="0.1" required>
         
-        <label for="pulse">Pulse:</label>
+        <label for="pulse">Pulse - Range 30-184:</label>
         <input type="number" id="pulse" name="pulse" min="30" max="184" step="1.0" required>
         
-        <label for="respiratory_rate">Respiratory Rate:</label>
+        <label for="respiratory_rate">Respiratory Rate - Range 8-96:</label>
         <input type="number" id="respiratory_rate" name="respiratory_rate" min="8" max="96" step="1.0" required>
         
         <label for="temp_of_extremities">Temperature Of Extremities:</label>
@@ -118,7 +125,7 @@
             {% endfor %}
         </select>
         
-        <label for="nasogastric_reflux_ph">Nasogastric Reflux PH:</label>
+        <label for="nasogastric_reflux_ph">Nasogastric Reflux PH - Range 1.0-7.5:</label>
         <input type="number" id="nasogastric_reflux_ph" name="nasogastric_reflux_ph" min="1" max="7.5" step="0.1" required>
         
         <label for="rectal_exam_feces">Rectal Exam Feces:</label>
@@ -135,10 +142,10 @@
             {% endfor %}
         </select>
         
-        <label for="packed_cell_volume">Packed Cell Volume:</label>
+        <label for="packed_cell_volume">Packed Cell Volume - Range 23-75:</label>
         <input type="number" id="packed_cell_volume" name="packed_cell_volume" min="23" max="75" step="1.0" required>
         
-        <label for="total_protein">Total Protein:</label>
+        <label for="total_protein">Total Protein - Range 3.5-89.0:</label>
         <input type="number" id="total_protein" name="total_protein" min="3.5" max="89" step="0.1" required>
         
         <label for="abdomo_appearance">Abdomen Appearance:</label>
@@ -148,7 +155,7 @@
             {% endfor %}
         </select>
         
-        <label for="abdomo_protein">Abdomen Protein:</label>
+        <label for="abdomo_protein">Abdomen Protein - Range 0.1-10.1:</label>
         <input type="number" id="abdomo_protein" name="abdomo_protein" min="0.1" max="10.1" step="0.1" required>
         
         <label for="surgical_lesion">Surgical Lesion:</label>
@@ -161,7 +168,6 @@
         <input type="submit" value="Predict">
     </form>
 </section>
-</body>
 </div>
 
 {% endblock %}
