@@ -1,6 +1,9 @@
 # machine-learning
 ## WGU C964 Capstone Project
-
+### Live demo
+```
+Check out the running web app [here](https://horsecolic.thekenpoist.net/)
+```
 ### Project Objective
 ```
 This is my Capstone project for the BSCS program at Western Governor's University.
